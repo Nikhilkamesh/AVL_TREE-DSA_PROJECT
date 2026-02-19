@@ -1,0 +1,316 @@
+/* ================= ROOT ================= */
+
+:root{
+    --bg-dark:#020617;
+    --bg-main:#0f172a;
+    --panel:rgba(255,255,255,0.06);
+    --border:rgba(255,255,255,0.15);
+
+    --primary:#6366f1;
+    --secondary:#22d3ee;
+    --danger:#ef4444;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --info:#3b82f6;
+
+    --text:#e2e8f0;
+    --muted:#94a3b8;
+    --font:'Outfit',sans-serif;
+}
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--font);
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 10% 10%,#1e293b 0%,transparent 40%),
+        radial-gradient(circle at 90% 0%,#1d4ed8 0%,transparent 40%),
+        linear-gradient(180deg,#020617,#020617);
+    color:var(--text);
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:95%;
+    max-width:1350px;
+    margin:auto;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    text-align:center;
+}
+
+header h1{
+    font-size:38px;
+    font-weight:700;
+    background:linear-gradient(90deg,#818cf8,#22d3ee,#a78bfa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    color:var(--muted);
+    font-size:15px;
+}
+
+/* ================= PANELS ================= */
+
+.glass-panel{
+    background:var(--panel);
+    backdrop-filter:blur(16px);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:0 0 30px rgba(0,0,0,.45);
+}
+
+/* ================= MAIN PANEL ================= */
+
+.main-panel{
+    padding:18px;
+}
+
+.controls-section{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.input-group,.action-group{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* ================= INPUT ================= */
+
+input[type="number"]{
+    padding:11px 14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(0,0,0,.4);
+    color:white;
+    font-size:15px;
+    width:170px;
+    transition:.25s;
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid var(--primary);
+    box-shadow:0 0 12px var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+    padding:10px 16px;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+    transition:all .25s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:translateY(-2px) scale(1.05);
+    filter:brightness(1.15);
+}
+
+.btn:active{
+    transform:scale(0.96);
+}
+
+/* button shine animation */
+
+.btn::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:translateX(-100%);
+}
+
+.btn:hover::after{
+    transform:translateX(100%);
+    transition:0.6s;
+}
+
+/* colors */
+
+.primary{background:linear-gradient(135deg,#6366f1,#4f46e5);}
+.secondary{background:linear-gradient(135deg,#06b6d4,#22d3ee);}
+.danger{background:linear-gradient(135deg,#ef4444,#dc2626);}
+.warning{background:linear-gradient(135deg,#f59e0b,#fbbf24);}
+.info{background:linear-gradient(135deg,#0ea5e9,#22d3ee);}
+
+.sm{
+    padding:7px 11px;
+    font-size:13px;
+    background:rgba(255,255,255,.08);
+    border:1px solid var(--border);
+}
+
+/* ================= TRAVERSAL ================= */
+
+.traversal-section{
+    margin-top:12px;
+}
+
+.traversal-display{
+    margin-top:8px;
+    background:rgba(0,0,0,.45);
+    padding:10px;
+    border-radius:12px;
+    font-family:monospace;
+    color:#a5f3fc;
+    min-height:40px;
+    overflow-x:auto;
+}
+
+/* ================= STATS ================= */
+
+.stats-panel{
+    margin-top:14px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.stat-item{
+    background:linear-gradient(145deg,rgba(30,41,59,.8),rgba(15,23,42,.6));
+    border:1px solid rgba(255,255,255,.08);
+    padding:12px 18px;
+    border-radius:14px;
+    box-shadow:0 0 12px rgba(99,102,241,.15);
+}
+
+.stat-label{
+    font-size:12px;
+    color:var(--muted);
+}
+
+.stat-value{
+    font-size:20px;
+    font-weight:700;
+    color:#a5b4fc;
+}
+
+.complexity-info{
+    margin-left:auto;
+    color:#67e8f9;
+    font-size:13px;
+}
+
+/* ================= MESSAGE POPUP ================= */
+
+#messageBox{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:rgba(15,23,42,.95);
+    padding:14px 22px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+    opacity:0;
+    transform:translateY(-20px);
+    transition:all .4s ease;
+    z-index:1000;
+}
+
+/* ================= TREE AREA ================= */
+
+.visualization-container{
+    position:relative;
+    height:620px;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center, rgba(99,102,241,0.18), transparent 60%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 40px);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= SVG NODES ================= */
+
+.node-circle{
+    fill:url(#nodeGradient);
+    stroke:#c7d2fe;
+    stroke-width:2;
+    filter:drop-shadow(0 0 8px rgba(99,102,241,.7));
+    transition:.3s;
+}
+
+.node-circle:hover{
+    filter:drop-shadow(0 0 18px #22d3ee);
+    transform:scale(1.05);
+}
+
+.node-text{
+    fill:white;
+    font-size:13px;
+    text-anchor:middle;
+    font-weight:700;
+    pointer-events:none;
+}
+
+.node-bf{
+    fill:#7dd3fc;
+    font-size:10px;
+    text-anchor:middle;
+}
+
+.link{
+    stroke:#64748b;
+    stroke-width:2.2;
+}
+
+/* ================= SEARCH ANIMATION ================= */
+
+@keyframes pulseNode{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.searching{
+    animation:pulseNode .6s ease;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    color:#64748b;
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+    header h1{font-size:28px;}
+    .visualization-container{height:520px;}
+}
