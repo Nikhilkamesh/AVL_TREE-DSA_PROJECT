@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AVL Tree Visualizer</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <h1>AVL Tree Visualizer</h1>
+        <p>Interactive Self-Balancing Binary Search Tree Simulation</p>
+    </header>
+
+
+    <!-- CONTROL PANEL -->
+    <div class="main-panel glass-panel">
+
+        <!-- INPUT + OPERATIONS -->
+        <div class="controls-section">
+
+            <div class="input-group">
+                <input type="number" id="nodeValue" placeholder="Enter value..." autofocus>
+                <button id="btnInsert" class="btn primary">Insert</button>
+                <button id="btnDelete" class="btn danger">Delete</button>
+                <button id="btnSearch" class="btn secondary">Search</button>
+            </div>
+
+            <div class="action-group">
+                <button id="btnClear" class="btn warning">Clear Tree</button>
+                <button id="btnRandom" class="btn info">Random (1-100)</button>
+            </div>
+
+        </div>
+
+
+        <!-- TRAVERSALS -->
+        <div class="traversal-section">
+
+            <div class="traversal-btn-group">
+                <button class="btn sm" onclick="traversal('inorder')">Inorder</button>
+                <button class="btn sm" onclick="traversal('preorder')">Preorder</button>
+                <button class="btn sm" onclick="traversal('postorder')">Postorder</button>
+            </div>
+
+            <div id="traversalOutput" class="traversal-display">
+                Traversal Output...
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+        <div class="stats-panel">
+
+            <div class="stat-item">
+                <span class="stat-label">Tree Height</span>
+                <span id="treeHeight" class="stat-value">0</span>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-label">Node Count</span>
+                <span id="nodeCount" class="stat-value">0</span>
+            </div>
+
+            <div class="complexity-info">
+                <span>Insert : O(log n)</span>
+                <span>Delete : O(log n)</span>
+                <span>Search : O(log n)</span>
+            </div>
+
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="message-area">
+            <span id="messageBox"></span>
+        </div>
+
+    </div>
+
+
+    <!-- TREE VISUALIZATION -->
+    <div class="visualization-container glass-panel">
+
+        <svg id="treeSvg"
+             viewBox="0 0 1400 700"
+             preserveAspectRatio="xMidYMid meet"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Definitions are inserted dynamically by JS -->
+
+        </svg>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        AVL Self-Balancing Tree Visualization • Data Structures Project
+    </footer>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
